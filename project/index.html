@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Animated | Gsap</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container container">
+        <nav
+          class="navigation navigation__header"
+          aria-label="Main"
+          id="navigation-header-js"
+        >
+          <ul class="list" id="nav-list-js">
+            <li class="list__item" data-animation="anim-first">
+              <div class="menu" id="menu-js">
+                <span></span><span></span><span></span>
+              </div>
+            </li>
+            <li class="list__item" data-animation="anim-first">
+              <a href="http://" target="_blank" rel="noopener noreferrer"
+                >membership</a
+              >
+            </li>
+            <li class="list__item--brand" id="brand-js">
+              <a
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                id="brand-link-js"
+              >
+                <span>THE CAL™</span>
+                <span>PIRELLI</span>
+                <span>CALENDAR</span>
+                <span>2024</span>
+              </a>
+            </li>
+            <li
+              class="list__item"
+              id="list-item-language-js"
+              data-fade="anim-fade"
+              data-animation="anim-last"
+            >
+              <button
+                type="button"
+                id="nav-button-language-js"
+                class="list__item--button"
+              >
+                IT
+              </button>
+            </li>
+            <li
+              class="list__item"
+              id="list-item-audio-js"
+              data-fade="anim-fade"
+              data-animation="anim-last"
+            >
+              <button
+                type="button"
+                id="nav-button-audio-js"
+                class="list__item--button"
+              >
+                Audio
+              </button>
+            </li>
+            <li
+              class="list__item"
+              id="list-item-subtitle-js"
+              data-fade="anim-fade"
+              data-animation="anim-last"
+            >
+              <button
+                type="button"
+                id="nav-button-subtitle-js"
+                class="list__item--button"
+              >
+                Subtitle
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="hero" id="hero-js">
+        <div class="container">
+          <div class="hero__gallery">
+            <img
+              src="./images/ari-he-MamWbmmaylY-unsplash.jpg"
+              alt=""
+              srcset=""
+              class="hero__gallery--img"
+            />
+          </div>
+          <div class="hero__gallery">
+            <img
+              src="./images/frankie-cordoba-fPYJeMmYWM4-unsplash.jpg"
+              alt=""
+              srcset=""
+              class="hero__gallery--img"
+            />
+          </div>
+          <div class="hero__gallery">
+            <img
+              src="./images/marty-o-neill-Jo-ypJVt8gQ-unsplash.jpg"
+              alt=""
+              srcset=""
+              class="hero__gallery--img"
+            />
+          </div>
+          <div class="hero__gallery">
+            <img
+              src="./images/tim-mossholder-hrm0hf8pCdU-unsplash.jpg"
+              alt=""
+              srcset=""
+              class="hero__gallery--img"
+            />
+          </div>
+          <div class="hero__gallery">
+            <img
+              src="./images/tyler-nix-sh3LSNbyj7k-unsplash.jpg"
+              alt=""
+              srcset=""
+              class="hero__gallery--img"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="backdrop backdrop__menu" data-backdrop="menu">
+        <div
+          class="backdrop__menu--container"
+          data-animation="backdrop-container"
+        >
+          <div class="backdrop__menu--list" data-animation="backdrop-menu">
+            <ul class="list">
+              <li class="list__item home" data-animation="list-item">
+                <a href="/" class="home__link" id="home-link-js"
+                  ><span data-animation="home">Home</span></a
+                >
+                <hr data-animation="home-underline" />
+              </li>
+              <li class="list__item calendar" data-animation="list-item">
+                <a href="#!">
+                  <span>The</span>
+                  <span>CAL™</span>
+                  <span>2023</span></a
+                >
+              </li>
+              <li class="list__item calendar" data-animation="list-item">
+                <a href="#!">
+                  <span>The</span>
+                  <span>CAL™</span>
+                  <span>2022</span></a
+                >
+              </li>
+              <li class="list__item calendar break" data-animation="list-item">
+                <a href="#!">
+                  <span>The</span>
+                  <span>CAL™</span>
+                  <span>2021</span></a
+                >
+              </li>
+              <li class="list__item info" data-animation="list-item">
+                <a href="#!">
+                  <span>The</span>
+                  <span>Story</span>
+                </a>
+              </li>
+              <li class="list__item info" data-animation="list-item">
+                <a href="#!"><span>The</span><span>Project</span></a>
+              </li>
+              <li class="list__item info" data-animation="list-item">
+                <a href="#!"
+                  ><span>The</span><span>Calendar</span><span>Numbers</span></a
+                >
+              </li>
+            </ul>
+            <hr data-animation="list-underline" />
+            <div class="location" id="location-js">
+              <span class="location--country" data-animation="country"></span>
+              <span class="location--time" data-animation="time"></span>
+            </div>
+          </div>
+          <div
+            class="backdrop__menu--gallery"
+            data-animation="backdrop-gallery"
+          >
+            <div class="gallery" id="gallery-js">
+              <p>
+                Selection of images to be displayed on infinite horizontal
+                scroll
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
+                sequi quia, quisquam cum earum mollitia amet cupiditate
+                accusamus, dolorum corporis aspernatur eos praesentium eum? In
+                quo et velit labore obcaecati! Explicabo nulla dolor odio qui.
+                Nam quidem quo, commodi modi vero perferendis mollitia provident
+                cumque doloremque saepe dolores dolorem sint reprehenderit
+                corrupti recusandae iste! Rerum, tenetur a? Voluptas, officia
+                rem? Debitis, cumque perferendis, minus minima numquam totam
+                enim exercitationem obcaecati hic tenetur illo sit itaque
+                deserunt quae. Possimus odit placeat suscipit, voluptate quis
+                modi veritatis laboriosam. Vel, voluptatibus. Placeat, ullam?
+                Praesentium maiores incidunt consequatur asperiores unde
+                molestias quae delectus veniam. Repellendus perferendis sit a
+                unde, corporis autem obcaecati corrupti ab atque voluptate,
+                quidem laudantium, veritatis nesciunt fuga vero fugiat labore!
+                At distinctio ullam soluta voluptatum cupiditate, quasi
+                accusamus tempore laudantium temporibus magni. Architecto,
+                asperiores et neque deserunt recusandae odio eveniet
+                voluptatibus aliquam modi, sapiente eaque amet velit molestias
+                possimus veniam!
+              </p>
+              <p id="gallery-message-js"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="backdrop--language hidden"
+        id="backdrop-language-js"
+        data-backdrop="languages"
+      >
+        <div class="container">display all languages</div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">Developed with fun by Jennifer Magpantay</div>
+    </footer>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

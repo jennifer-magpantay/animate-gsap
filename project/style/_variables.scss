@@ -1,0 +1,42 @@
+@use "./functions" as *;
+
+$max-width: toRem(1440);
+$column: calc($max-width / 12);
+
+// COLOURS
+$clr-white: #ffffff;
+$clr-black: #000000;
+
+$clr-gray-0: #fafafa;
+$clr-gray-1: #f2f2f2;
+$clr-gray-2: #d9d9d9;
+$clr-gray-9: #262626;
+$clr-gray-10: #0d0d0d;
+
+$clr-primary: #00b9a1; //#1170d2; //#ff8600;
+
+// FONTS
+$ff-roboto: "Roboto", sans-serif;
+$ff-poppins: "Poppins", sans-serif;
+
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extra-bold: 800;
+
+$fs-small: toRem(14);
+$fs-regular: toRem(16);
+$fs-medium: toRem(32);
+$fs-large: toRem(40);
+$fs-x-large: toRem(48);
+
+// RESPONSIVE
+$mobile-s: toRem(320);
+$mobile-m: toRem(375);
+$mobile-l: toRem(425);
+$mobile: toRem(600);
+$tablet: toRem(768);
+$desktop-s: toRem(1024);
+$desktop-l: toRem(1440);
