@@ -1,0 +1,14 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.header {
+  width: 100%;
+  height: toRem(80);
+  display: flex;
+  align-items: center;
+  // background-color: $clr-gray-10;
+  color: $clr-white;
+
+  &__container {
+  }
+}

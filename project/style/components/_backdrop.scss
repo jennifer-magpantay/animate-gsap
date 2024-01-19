@@ -1,0 +1,133 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.backdrop {
+  &__menu,
+  &--language {
+    position: absolute;
+    background-color: $clr-gray-10;
+    color: $clr-white;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+  }
+
+  &__menu {
+    inset: 0;
+    //width: 0;
+
+    &.over {
+      z-index: 10;
+    }
+
+    &--container {
+      width: 0;
+      max-width: $max-width;
+      height: 100%;
+      max-height: calc(100vh - toRem(80));
+      display: flex;
+      margin: 0 auto;
+      overflow: hidden;
+      position: absolute;
+    }
+
+    &--list {
+      // width: 35%;
+      width: calc($max-width * 0.35);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      flex-shrink: 0;
+
+      hr {
+        width: 0;
+      }
+
+      .list {
+        height: 100%;
+        margin: toRem(40) 0;
+
+        &__item {
+          overflow: hidden;
+
+          a {
+            display: block;
+            overflow: hidden;
+          }
+
+          a > span {
+            display: inline-block;
+            color: $clr-white;
+            transform: translateY(toRem(60));
+
+            &:not(:last-of-type) {
+              margin-right: toRem(4);
+            }
+          }
+
+          &.home {
+            font-size: $fs-large;
+            font-family: $ff-poppins;
+
+            a {
+              margin: toRem(40) 0;
+              span {
+                transform: translateY(toRem(80));
+              }
+            }
+
+            hr {
+              margin-bottom: toRem(40);
+            }
+          }
+
+          &.calendar {
+            font-size: $fs-medium;
+            font-family: $ff-poppins;
+          }
+
+          &.info {
+            font-size: $fs-medium;
+          }
+
+          &.break {
+            margin-bottom: toRem(80);
+          }
+        }
+      }
+
+      .location {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: toRem(28) 0;
+
+        &--country,
+        &--time {
+          font-family: $ff-poppins;
+          transform: translateY(toRem(50));
+        }
+      }
+    }
+
+    &--gallery {
+      //width: 65%;
+      width: calc(1440px * 0.65);
+      height: 0;
+      flex-shrink: 0;
+    }
+  }
+
+  &--language {
+    top: 0;
+    left: 0;
+    right: 0;
+
+    &.expanded {
+      height: 100%;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

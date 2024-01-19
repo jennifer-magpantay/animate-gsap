@@ -1,0 +1,14 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.hero {
+  &__gallery {
+    width: 100%;
+    height: calc(100vh - toRem(80) - toRem(24));
+    border: 01px solid orange;
+
+    &--img {
+      opacity: 0;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.navigation {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  &__header {
+    .list {
+      width: 100%;
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: auto auto 1fr auto auto auto;
+      gap: toRem(16);
+      align-items: center;
+
+      &__item,
+      &__item--brand {
+        text-align: center;
+        text-transform: uppercase;
+        overflow: hidden;
+      }
+
+      &__item {
+        font-size: toRem(14);
+        // transform: translateY(toRem(10));
+        opacity: 0;
+
+        &--button {
+          background-color: transparent;
+          border: none;
+          color: inherit;
+          cursor: pointer;
+          text-transform: inherit;
+          outline: none;
+        }
+      }
+
+      &__item--brand {
+        font-size: toRem(18);
+
+        span {
+          display: inline-block;
+          transform: translateY(toRem(24));
+
+          &:not(:last-of-type) {
+            margin-right: toRem(4);
+          }
+        }
+      }
+    }
+  }
+}
