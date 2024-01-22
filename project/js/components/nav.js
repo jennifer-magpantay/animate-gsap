@@ -30,9 +30,7 @@ function initNavAnimation() {
     .to(
       navListBrandSpans,
       {
-        y: function (index) {
-          return 0;
-        },
+        y: 0,
         duration: function (index) {
           return halfTiming * index + 1;
         },

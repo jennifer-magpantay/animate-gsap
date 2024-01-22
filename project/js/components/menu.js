@@ -1,34 +1,47 @@
 import gsap from "gsap";
 
+// components
+let backdropMenu;
+let backdropMenuContainer;
+let backdropMenuList;
+let backdropMenuGallery;
+
+let homeSpan;
+let countrySpan;
+let timeSpan;
+
+let homeUnderline;
+let listUnderline;
+
+let menuListItems;
+let navItems;
+let gallery;
+
+// animation
 let openMenuTimeline;
 const timing = 1;
 const halfTiming = timing / 2;
 
 function openMenu() {
-  const backdropMenu = document.querySelector("[data-backdrop='menu']");
-  const backdropMenuContainer = backdropMenu.querySelector(
+  backdropMenu = document.querySelector("[data-backdrop='menu']");
+  backdropMenuContainer = backdropMenu.querySelector(
     "[data-animation='backdrop-container']"
   );
-  const backdropMenuList = document.querySelector(
-    "[data-animation='backdrop-menu']"
+  backdropMenuList = document.querySelector("[data-animation='backdrop-menu']");
+  homeSpan = document.querySelector("[data-animation='home']");
+  countrySpan = document.querySelector("[data-animation='country']");
+  timeSpan = document.querySelector("[data-animation='time']");
+  homeUnderline = document.querySelector("[data-animation='home-underline']");
+  listUnderline = document.querySelector("[data-animation='list-underline']");
+  menuListItems = document.querySelectorAll(
+    "[data-animation='list-item'] > a > span"
   );
-  const homeSpan = document.querySelector("[data-animation='home']");
-  const countrySpan = document.querySelector("[data-animation='country']");
-  const timeSpan = document.querySelector("[data-animation='time']");
-  const homeUnderline = document.querySelector(
-    "[data-animation='home-underline']"
-  );
-  const listUnderline = document.querySelector(
-    "[data-animation='list-underline']"
-  );
-  const menuListItems = document.querySelectorAll(
-    "[data-animation='list-item']"
-  );
-  const backdropMenuGallery = backdropMenu.querySelector(
+  backdropMenuGallery = backdropMenu.querySelector(
     "[data-animation='backdrop-gallery']"
   );
-  const gallery = document.querySelector("#gallery-js");
-  const navItems = document.querySelectorAll("[data-fade='anim-fade']");
+  gallery = document.querySelector("#gallery-js");
+  navItems = document.querySelectorAll("[data-fade='anim-fade']");
+
   const navItemsReversed = Array.from(navItems).reverse();
   const spaceLeft = calculateSpaceLeft();
 
@@ -112,26 +125,18 @@ function openMenu() {
         ease: "power4.in",
       },
       "<"
-    );
-
-  // cascade menu list
-  menuListItems.forEach((item) => {
-    const itemSpans = item.querySelectorAll("span");
-    itemSpans.forEach((span, index) => {
-      openMenuTimeline.to(
-        span,
-        {
-          y: 0,
-          duration: timing * index + 1,
-          ease: "power1.inOut",
+    )
+    .to(
+      menuListItems,
+      {
+        y: 0,
+        duration: function (index) {
+          return (halfTiming / 3) * index + 1;
         },
-        "<"
-      );
-    });
-  });
-
-  // open gallery
-  openMenuTimeline
+        ease: "power1.inOut",
+      },
+      "<"
+    )
     .to(
       backdropMenuGallery,
       {
@@ -151,30 +156,80 @@ function openMenu() {
         ease: "sine.inOut",
       },
       ">"
-    );
-
-  // fade navigation reversed
-  navItemsReversed.forEach((element, index) => {
-    openMenuTimeline.to(
-      element,
+    )
+    .to(
+      navItemsReversed,
       {
         opacity: 0,
-        duration: (halfTiming / 3) * index + 1,
+        duration: function (index) {
+          return (halfTiming / 3) * index + 1;
+        },
         ease: "power1.in",
       },
       "start"
     );
-  });
+
+  // cascade menu list
+  // menuListItems.forEach((item) => {
+  //   const itemSpans = item.querySelectorAll("span");
+  //   itemSpans.forEach((span, index) => {
+  //     openMenuTimeline.to(
+  //       span,
+  //       {
+  //         y: 0,
+  //         duration: timing * index + 1,
+  //         ease: "power1.inOut",
+  //       },
+  //       "<"
+  //     );
+  //   });
+  // });
+
+  // open gallery
+  // openMenuTimeline
+  //   .to(
+  //     backdropMenuGallery,
+  //     {
+  //       height: "100%",
+  //       duration: timing,
+  //       ease: "power4.in",
+  //     },
+  //     "<"
+  //   )
+  //   .to(
+  //     gallery,
+  //     {
+  //       opacity: 1,
+  //       visibility: "visible",
+  //       y: 0,
+  //       duration: timing + halfTiming,
+  //       ease: "sine.inOut",
+  //     },
+  //     ">"
+  //   );
+
+  // fade navigation reversed
+  // navItemsReversed.forEach((element, index) => {
+  //   openMenuTimeline.to(
+  //     element,
+  //     {
+  //       opacity: 0,
+  //       duration: (halfTiming / 3) * index + 1,
+  //       ease: "power1.in",
+  //     },
+  //     "start"
+  //   );
+  // });
 
   openMenuTimeline.play();
 }
 
 function closeMenu() {
-  const backdropMenu = document.querySelector("[data-backdrop='menu']");
-  const backdropMenuContainer = backdropMenu.querySelector(
-    "[data-animation='backdrop-container']"
-  );
-  const navItems = document.querySelectorAll("[data-fade='anim-fade']");
+  // const backdropMenu = document.querySelector("[data-backdrop='menu']");
+  // const backdropMenuContainer = backdropMenu.querySelector(
+  //   "[data-animation='backdrop-container']"
+  // );
+  // const navItems = document.querySelectorAll("[data-fade='anim-fade']");
 
   // reset animations when closing is complete
   const closeMenuTimeline = gsap.timeline({
@@ -195,27 +250,58 @@ function closeMenu() {
       visibility: "hidden",
       duration: halfTiming,
       ease: "power1.in",
-    });
-
-  // reset nav
-  navItems.forEach((element, index) => {
-    closeMenuTimeline.to(
-      element,
+    })
+    .to(
+      navItems,
       {
         opacity: 1,
-        duration: (halfTiming / 3) * index + 1,
+        duration: function (index) {
+          return (halfTiming / 3) * index + 1;
+        },
         ease: "power1.in",
       },
       "-=75%"
     );
-  });
+
+  // reset nav
+  // navItems.forEach((element, index) => {
+  //   closeMenuTimeline.to(
+  //     element,
+  //     {
+  //       opacity: 1,
+  //       duration: (halfTiming / 3) * index + 1,
+  //       ease: "power1.in",
+  //     },
+  //     "-=75%"
+  //   );
+  // });
 
   closeMenuTimeline.play();
 }
 
 function clearTimeline() {
   setTimeout(() => {
-    openMenuTimeline.pause(0);
+    // 1. by setting pause to position 0 or
+    //openMenuTimeline.pause(0);
+
+    // 2. by clearProps all for each component
+    openMenuTimeline.to(
+      [
+        backdropMenu,
+        backdropMenuContainer,
+        backdropMenuGallery,
+        backdropMenuList,
+        homeSpan,
+        countrySpan,
+        timeSpan,
+        homeUnderline,
+        listUnderline,
+        menuListItems,
+        gallery,
+      ],
+      { clearProps: "all" },
+      0
+    );
   }, 300);
 }
 
