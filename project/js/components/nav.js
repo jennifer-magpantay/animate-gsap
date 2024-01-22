@@ -16,54 +16,92 @@ function initNavAnimation() {
     "[data-animation='anim-last']"
   );
 
-  navTimeline.add("start").to(
-    nav,
-    {
-      opacity: 1,
-      duration: timing,
-      ease: "power1.in",
-    },
-    "start"
-  );
-
-  navListBrandSpans.forEach((span, index) => {
-    navTimeline.to(
-      span,
+  navTimeline
+    .add("start")
+    .to(
+      nav,
       {
-        y: 0,
-        duration: halfTiming * index + 1,
+        opacity: 1,
+        duration: timing,
+        ease: "power1.in",
+      },
+      "start"
+    )
+    .to(
+      navListBrandSpans,
+      {
+        y: function (index) {
+          return 0;
+        },
+        duration: function (index) {
+          return halfTiming * index + 1;
+        },
         ease: "power1.inOut",
       },
       "start"
-    );
-  });
-
-  navListItemsFirst.forEach((element, index) => {
-    navTimeline.to(
-      element,
+    )
+    .to(
+      navListItemsFirst,
       {
         opacity: 1,
-        //y: 0,
-        duration: halfTiming * index + 2,
+        duration: function (index) {
+          return halfTiming * index + 2;
+        },
         ease: "power1.inOut",
+        stagger: 0.25,
       },
-      halfTiming
-    );
-  });
-
-  navListItemsLast.forEach((element, index) => {
-    navTimeline.to(
-      element,
+      "start+=0.75"
+    )
+    .to(
+      navListItemsLast,
       {
         opacity: 1,
-
-        //y: 0,
-        duration: halfTiming * index + 2,
+        duration: function (index) {
+          return halfTiming * index + 2;
+        },
         ease: "power1.inOut",
+        stagger: 0.25,
       },
-      timing
+      "start+=0.75"
     );
-  });
+
+  // navListBrandSpans.forEach((span, index) => {
+  //   navTimeline.to(
+  //     span,
+  //     {
+  //       y: 0,
+  //       duration: halfTiming * index + 1,
+  //       ease: "power1.inOut",
+  //     },
+  //     "start"
+  //   );
+  // });
+
+  // navListItemsFirst.forEach((element, index) => {
+  //   navTimeline.to(
+  //     element,
+  //     {
+  //       opacity: 1,
+  //       //y: 0,
+  //       duration: halfTiming * index + 2,
+  //       ease: "power1.inOut",
+  //     },
+  //     halfTiming
+  //   );
+  // });
+
+  // navListItemsLast.forEach((element, index) => {
+  //   navTimeline.to(
+  //     element,
+  //     {
+  //       opacity: 1,
+  //       //y: 0,
+  //       duration: halfTiming * index + 2,
+  //       ease: "power1.inOut",
+  //     },
+  //     timing
+  //   );
+  // });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
